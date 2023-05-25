@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<script src="src/v/person.mjs" type="module"></script>
+<head>
+ <meta charset="UTF-8" />
+ <title>Minimal Plain JS App</title>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <nav>
+      <ul>
+        <li><a href="movie.html">Movies</a></li>
+        <li><a href="person.html">Persons</a></li>
+      </ul>
+    </nav>
+  </div>
+<header>
+<div class="wrapper clearfix">
+<!-- ======================================================= -->
+<section id="Person-M" class="UI-Page">
+    <!-- ======================================================= -->
+<h1>Manage persons</h1>
+<ul class="menu">
+    <li>
+      <button type="button" id="RetrieveAndListAll">Retrieve/list all persons
+      </button>
+    </li>
+    <li>
+      <button type="button" id="Create">Create a new person record</button>
+    </li>
+    <li>
+      <button type="button" id="Update">Update a person record</button>
+    </li>
+    <li>
+      <button type="button" id="Delete">Delete a person record</button>
+    </li>
+  </ul>
+  <div class="button"><a href="index.html">Back to Main menu</a></div>
+</section>
+<!-- ======================================================= -->
+<section id="Person-R" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Retrieve and list all persons</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>PersonId</th>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="button">
+      <button type="button" class="back-to-menu">Back to menu</button>
+    </div>
+  </section>
+<!-- ======================================================= -->
+<section id="Person-C" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Create a new person record</h1>
+    <form>
+      <div class="field">
+        <label>personId: <input type="text" name="personId"/></label>
+      </div>
+      <div class="field">
+        <label>Name: <input type="text" name="name"/></label>
+      </div>
+      <div><label>Role: </label>
+      <input type="checkbox" id="role1" name="role1" value="director">
+        <label for="role1"> Director</label>
+      <input type="checkbox" id="role2" name="role2" value="actor">
+        <label for="role1"> Actor</label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  <!-- ======================================================= -->
+  <section id="Person-U" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Update a person record</h1>
+    <form autocomplete="off">
+      <div class="select-one">
+        <label>Select person: <select name="selectPerson"></select></label>
+      </div>
+      <div class="field">
+        <label>personId:
+          <output name="personId"></output>
+        </label>
+      </div>
+      <div class="field">
+        <label>Name: <input type="text" name="name"/></label>
+      </div>
+      <div><label>Role: </label>
+        <input type="checkbox" id="role1" name="role1" value="director">
+          <label for="role1"> Director</label>
+        <input type="checkbox" id="role2" name="role2" value="actor">
+          <label for="role1"> Actor</label>
+        </div>
+      <div class="button-group">
+        <button type="submit" name="commit" disabled="disabled">Save</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  <!-- ======================================================= -->
+  <section id="Person-D" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Delete a person record</h1>
+    <form>
+      <div class="select-one">
+        <label>Select person: <select name="selectPerson"></select></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Delete</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+</div>
+</main>
+<footer>
+  <div class="foot-content wrapper">
+    Copyright © 2013-2021 Gerd Wagner,
+    <a rel="license" href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>.
+  </div>
+</footer>
+</body>
+</html>

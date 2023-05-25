@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<script src="src/v/movie.mjs" type="module"></script>
+<head>
+ <meta charset="UTF-8" />
+ <title>Minimal Plain JS App</title>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <nav>
+      <ul>
+        <li><a href="movie.html">Movies</a></li>
+        <li><a href="person.html">Persons</a></li>
+      </ul>
+    </nav>
+  </div>
+<header>
+<div class="wrapper clearfix">
+<!-- ======================================================= -->
+<section id="Movie-M" class="UI-Page">
+    <!-- ======================================================= -->
+<h1>Manage movies</h1>
+<ul class="menu">
+    <li>
+      <button type="button" id="RetrieveAndListAll">Retrieve/list all movies
+      </button>
+    </li>
+    <li>
+      <button type="button" id="Create">Create a new movie record</button>
+    </li>
+    <li>
+      <button type="button" id="Update">Update a movie record</button>
+    </li>
+    <li>
+      <button type="button" id="Delete">Delete a movie record</button>
+    </li>
+  </ul>
+  <div class="button"><a href="index.html">Back to Main menu</a></div>
+</section>
+<div class="wrapper clearfix">
+<!-- ======================================================= -->
+<section id="Movie-R" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Retrieve and list all movies</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>MovieId</th>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Director</th>
+        <th>Actor</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="button">
+      <button type="button" class="back-to-menu">Back to menu</button>
+    </div>
+  </section>
+<!-- ======================================================= -->
+<section id="Movie-C" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Create a new movie record</h1>
+    <form>
+      <div class="field">
+        <label>MovieId: <input type="text" name="movieId"/></label>
+      </div>
+      <div class="field">
+        <label>Title: <input type="text" name="title"/></label>
+      </div>
+      <div class="field">
+        <label>ReleaseDate: <input type="text" name="releaseDate"/></label>
+      </div>
+      <div class="field">
+        <label>Director: <input type="text" name="director"/></label>
+      </div>
+      <div class="field">
+        <label>Actor: <input type="text" name="actor"/></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  <!-- ======================================================= -->
+  <section id="Movie-U" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Update a movie record</h1>
+    <form autocomplete="off">
+      <div class="select-one">
+        <label>Select movie: <select name="selectMovie"></select></label>
+      </div>
+      <div class="field">
+        <label>MovieId:
+          <output name="movieId"></output>
+        </label>
+      </div>
+      <div class="field">
+        <label>Title: <input type="text" name="title"/></label>
+      </div>
+      <div class="field">
+        <label>ReleaseDate: <input type="text" name="ReleaseDate"/></label>
+      </div>
+      <div class="field">
+        <label>Director: <input type="text" name="director"/></label>
+      </div>
+      <div class="field">
+        <label>actor: <input type="text" name="actor"/></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit" disabled="disabled">Save</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  <!-- ======================================================= -->
+  <section id="Movie-D" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Delete a movie record</h1>
+    <form>
+      <div class="select-one">
+        <label>Select movie: <select name="selectMovie"></select></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Delete</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+</div>
+</main>
+<footer>
+  <div class="foot-content wrapper">
+    Copyright © 2013-2021 Gerd Wagner,
+    <a rel="license" href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>.
+  </div>
+</footer>
+</body>
+</html>
