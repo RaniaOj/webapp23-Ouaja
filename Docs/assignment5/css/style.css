@@ -1,0 +1,111 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+   body {
+    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+/* ===================
+    ALL: Theme
+   =================== */
+:root {  /* pseudo-class used for variable definitions */
+    --light-bg-color: rgb(54, 120, 17); 
+    --dark-bg-color: rgb(11, 55, 24); 
+ /* --light-bg-color: forestgreen;
+    --dark-bg-color: darkgreen;
+  */
+}
+
+
+header,
+footer {
+    background: var(--light-bg-color);
+}
+
+header .title {
+    color: white;
+}
+
+/* ==============
+    MOBILE: Menu
+   ============== */
+
+nav ul {
+    margin: 0;
+    padding:0;
+    list-style-type: none;
+}
+nav a {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: var(--dark-bg-color);
+    border: 3px solid green; 
+}
+nav a:hover,
+nav a:visited {
+    color: white;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+header figure {
+    display: none;
+}
+/* ==============
+    MOBILE: Main
+   ============== */
+main {
+    padding: 30px 0;
+}
+footer div.foot-content {
+    color: white;
+    padding: 20px 0;
+}

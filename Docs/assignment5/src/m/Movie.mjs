@@ -6,40 +6,49 @@
  * can be modified to create derivative works, can be redistributed, and can be used in commercial applications.
  */
 
-import Person from "./Person.mjs";
+import Person from "../m/Person.mjs";
 import { isNonEmptyString, isIntegerOrIntegerString }
     from "../../lib/useful.mjs";
 import {NoConstraintBreak, MandatoryValueConstraintBreak,
   RangeConstraintBreak }
     from "../../lib/errorTypes.mjs";
+    /**
+ * The class Movie
+ * @class
+ * @param {object} slots - Object creation slots.
+ */
 
 // The class Movie
 class Movie {
-  Constructor (movieId, title,releaseDate,rating,genres){
+  Constructor (movieId, title, releaseDate, director, actor){
     this.movieId = movieId;
     this.title = title;
     this.releaseDate = releaseDate;
-    this.director = this.director;
-    this.actor = this.actor;
+    this.director = director;
+    this.actor = actor;
   }
 
   get movieId(){
     return this._movieId;
   }
-  static checkMovieId (movieId) {
+  static checkMovieId ( mId) {
     let moviesString = localStorage.getItem("movies");
-   if (Object.keys(JSON.parse(moviesString)).includes(movieId.toString())) {
+    if (!mId) {
+      return new MandatoryValueConstraintBreak(); 
+    } else {
+   if (Object.keys(JSON.parse(moviesString)).includes(mId.toString())) {
       return new RangeConstraintBreak (
         "The movieId exists!");
-  } else if (!isIntegerOrIntegerString(movieId) || parseInt(movieId) < 1)  {
+  } else if (!isIntegerOrIntegerString(mId) || parseInt(mId) < 1)  {
     return new RangeConstraintBreak (
       "The movieId must be a PositiveInteger!");}
    else return NoConstraintBreak() ; 
-    };
-  static checkMovieIdAsId( movieId) {
-    var validationResult = Movie.checkMovieIdAsId( movieId);
+    }
+  }
+  static checkMovieIdAsId( mId) {
+    var validationResult = Movie.checkMovieIdAsId( mId);
     if ((validationResult instanceof NoConstraintBreak)) {
-      if (!movieId) {
+      if (!mId) {
         validationResult = new MandatoryValueConstraintBreak(
           "A MovieId must be provided!");
         validationResult = new NoConstraintBreak();
@@ -59,22 +68,22 @@ class Movie {
   get title(){
     return this._title;
   } 
-  static checkTitle (title) {
-    if (title === undefined) {
+  static checkTitle (t) {
+    if (t === undefined) {
         return MandatoryValueConstraintBreak ("Titel is required!");
   } else {
-    if (!isNonEmptyString(titel)) {
+    if (!isNonEmptyString(t)) {
         return new RangeConstraintBreak (
           "Titel must be a non-empty string!");
-  } else if (title.length > 120) {
+  } else if (t.length > 120) {
         return console.log ("Titel must be equal or less than 120");
   } else return NoConstraintBreak(); 
   }
   }
-  set titel( tt) {
-    const validationResult = Movie.checkTitle( tt);
+  set titel( t) {
+    const validationResult = Movie.checkTitle( t);
     if (validationResult instanceof NoConstraintBreak) {
-      this._titel = tt;
+      this._titel = t;
     } else {
       throw validationResult = new NoConstraintBreak();
     }
@@ -101,13 +110,13 @@ class Movie {
 get director() {
   return this._director;
 }
-static checkDirector( director_Id) {
+static checkDirector( d) {
   var validationResult = null;
-  if (!director_Id) {
+  if (!d) {
     validationResult = new NoConstraintBreak(); 
   } else {
     // invoke foreign key constraint check
-    validationResult = director.checkNameAsIdRef( director_Id);
+    validationResult = director.checkNameAsIdRef( d);
   }
   return validationResult;
 }
@@ -156,9 +165,10 @@ set director( d) {
 get actors() {
   return this._actors;
 }
-static checkActor( actor_id) {
+
+static checkActor( a) {
   var validationResult = null;
-  if (!actor_id) {
+  if (!a) {
     // actors(s) are optional
     validationResult = new NoConstraintBreak();
   } else {
@@ -180,6 +190,7 @@ set actors( a) {
   }
 }
 }
+
 /***********************************************
  ***  Class-level ("static") properties  *******
  ***********************************************/
@@ -191,6 +202,7 @@ Movie.instances = {};  // initially an empty collection (a map)
 /**
  *  Create a new movie 
  */
+
 Movie.add = function (slots) {
   try {
     const movie = new Movie( slots);

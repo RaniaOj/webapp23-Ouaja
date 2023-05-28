@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<script src="src/v/person.mjs" type="module"></script>
 <head>
  <meta charset="UTF-8" />
- <title>Minimal Plain JS App</title>
+ <title>Plain JS Bidirectional Association App: Manage Persons</title>
+ <link rel="stylesheet" href="css/style.css"/>
+ <script src="src/v/persons.mjs" type="module"></script>
 </head>
 <body>
 <header>
   <div class="wrapper clearfix">
+    <div class="title">
+      <h1>Movie Library</h1>
+      <h2>Plain JS Bidirectional Association App</h2>
+    </div>
     <nav>
       <ul>
         <li><a href="movie.html">Movies</a></li>
@@ -15,7 +20,8 @@
       </ul>
     </nav>
   </div>
-<header>
+</header>
+<main>
 <div class="wrapper clearfix">
 <!-- ======================================================= -->
 <section id="Person-M" class="UI-Page">
@@ -38,6 +44,7 @@
   </ul>
   <div class="button"><a href="index.html">Back to Main menu</a></div>
 </section>
+<main>
 <!-- ======================================================= -->
 <section id="Person-R" class="UI-Page">
     <!-- ======================================================= -->
@@ -48,6 +55,8 @@
         <th>PersonId</th>
         <th>Name</th>
         <th>Role</th>
+        <th>Directed movies</th>
+        <th>Played movies</th>
       </tr>
       </thead>
       <tbody></tbody>
@@ -62,16 +71,25 @@
     <h1>Create a new person record</h1>
     <form>
       <div class="field">
-        <label>personId: <input type="text" name="personId"/></label>
+        <label>PersonId: <input type="text" name="personId"/></label>
       </div>
       <div class="field">
         <label>Name: <input type="text" name="name"/></label>
       </div>
-      <div><label>Role: </label>
-      <input type="checkbox" id="role1" name="role1" value="director">
+      <div class="text">
+        <label>Role: </label>
+      <input type="checkbox" id="role-director" name="role[]" class="role" value="director">
         <label for="role1"> Director</label>
-      <input type="checkbox" id="role2" name="role2" value="actor">
+      <input type="checkbox" id="role-actor" name="role[]" class="role" value="actor">
         <label for="role1"> Actor</label>
+      </div>
+      <div class="select-many">
+        <label>Directed movies: 
+          <select name="selectMovie" multiple="multiple"></select>
+      </div>
+      <div class="select-many">
+        <label>Played movies: 
+          <select name="selectMovie" multiple="multiple"></select>
       </div>
       <div class="button-group">
         <button type="submit" name="commit">Save</button>
@@ -88,18 +106,27 @@
         <label>Select person: <select name="selectPerson"></select></label>
       </div>
       <div class="field">
-        <label>personId:
+        <label>PersonId:
           <output name="personId"></output>
         </label>
       </div>
       <div class="field">
         <label>Name: <input type="text" name="name"/></label>
       </div>
-      <div><label>Role: </label>
+      <div class="text">
+        <label>Role: </label>
         <input type="checkbox" id="role1" name="role1" value="director">
           <label for="role1"> Director</label>
         <input type="checkbox" id="role2" name="role2" value="actor">
           <label for="role1"> Actor</label>
+        </div>
+        <div class="select-many">
+          <label>Directed movies: 
+            <select name="selectMovie" multiple="multiple"></select>
+        </div>
+        <div class="select-many">
+          <label>Played movies: 
+            <select name="selectMovie" multiple="multiple"></select>
         </div>
       <div class="button-group">
         <button type="submit" name="commit" disabled="disabled">Save</button>

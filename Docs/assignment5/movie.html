@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<script src="src/v/movie.mjs" type="module"></script>
-<head>
  <meta charset="UTF-8" />
- <title>Minimal Plain JS App</title>
+ <title>Plain JS Bidirectional Association App: Manage movies</title>
+ <link rel="stylesheet" href="css/style.css"/>
+ <script src="src/v/persons.mjs" type="module"></script><head>
 </head>
 <body>
 <header>
   <div class="wrapper clearfix">
+    <div class="title">
+      <h1>Movie Library</h1>
+      <h2>Plain JS Bidirectional Association App</h2>
+    </div>
     <nav>
       <ul>
         <li><a href="movie.html">Movies</a></li>
@@ -15,7 +19,8 @@
       </ul>
     </nav>
   </div>
-<header>
+</header>
+<main>
 <div class="wrapper clearfix">
 <!-- ======================================================= -->
 <section id="Movie-M" class="UI-Page">
@@ -23,17 +28,24 @@
 <h1>Manage movies</h1>
 <ul class="menu">
     <li>
-      <button type="button" id="RetrieveAndListAll">Retrieve/list all movies
+      <button type="button" id="retrieveAndListAllMovies">
+        Retrieve/list all movies
       </button>
     </li>
     <li>
-      <button type="button" id="Create">Create a new movie record</button>
+      <button type="button" id="Create">
+        Create a new movie 
+      </button>
     </li>
     <li>
-      <button type="button" id="Update">Update a movie record</button>
+      <button type="button" id="Update">
+        Update a movie 
+      </button>
     </li>
     <li>
-      <button type="button" id="Delete">Delete a movie record</button>
+      <button type="button" id="Delete">
+        Delete a movie 
+      </button>
     </li>
   </ul>
   <div class="button"><a href="index.html">Back to Main menu</a></div>
@@ -71,13 +83,14 @@
         <label>Title: <input type="text" name="title"/></label>
       </div>
       <div class="field">
-        <label>ReleaseDate: <input type="text" name="releaseDate"/></label>
+        <label>ReleaseDate: <input type="date" name="releaseDate"/></label>
       </div>
-      <div class="field">
-        <label>Director: <input type="text" name="director"/></label>
+      <div class="select-one">
+        <label>Director: <select name="selectDirector"></select></label>
       </div>
-      <div class="field">
-        <label>Actor: <input type="text" name="actor"/></label>
+      <div class="select-many">
+        <label>Actor: 
+          <select name="selectAuthors" multiple="multiple"></select>
       </div>
       <div class="button-group">
         <button type="submit" name="commit">Save</button>
@@ -102,13 +115,14 @@
         <label>Title: <input type="text" name="title"/></label>
       </div>
       <div class="field">
-        <label>ReleaseDate: <input type="text" name="ReleaseDate"/></label>
+        <label>ReleaseDate: <input type="date" name="releaseDate"/></label>
       </div>
-      <div class="field">
-        <label>Director: <input type="text" name="director"/></label>
+      <div class="select-one">
+        <label>Director: <select name="selectDirector"></select></label>
       </div>
-      <div class="field">
-        <label>actor: <input type="text" name="actor"/></label>
+      <div class="select-many">
+        <label>Actor: 
+          <select name="selectAuthors" multiple="multiple"></select>
       </div>
       <div class="button-group">
         <button type="submit" name="commit" disabled="disabled">Save</button>

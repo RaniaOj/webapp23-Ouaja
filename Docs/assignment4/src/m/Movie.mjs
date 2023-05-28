@@ -12,15 +12,20 @@ import { isNonEmptyString, isIntegerOrIntegerString }
 import {NoConstraintBreak, MandatoryValueConstraintBreak,
   RangeConstraintBreak }
     from "../../lib/errorTypes.mjs";
+/**
+ * The class Movie
+ * @class
+ * @param {object} slots - Object creation slots.
+ */
 
 // The class Movie
 class Movie {
-  Constructor (movieId, title,releaseDate,rating,genres){
+  constructor ({movieId, title, releaseDate, personIdRef, director, actor}){
     this.movieId = movieId;
     this.title = title;
     this.releaseDate = releaseDate;
-    this.director = this.director;
-    this.actor = this.actor;
+    this.director = director;
+    this.actor = actor;
   }
 
   get movieId(){
@@ -112,7 +117,7 @@ static checkDirector( director_Id) {
   return validationResult;
 }
 addDirector( d) {
-  // a can be an ID reference or an object reference
+  // d can be an ID reference or an object reference
   const director_id = (typeof d !== "object") ? parseInt( d) : d.directorId;
   if (director_id) {
     const validationResult = Movie.checkDirector( director_id);
@@ -126,7 +131,7 @@ addDirector( d) {
   }
 }
 removeDirector( d) {
-  // a can be an ID reference or an object reference
+  // d can be an ID reference or an object reference
   const director_id = (typeof d !== "object") ? parseInt( d) : d.directorId;
   if (director_id) {
     const validationResult = Movie.checkDirector( director_id);
@@ -292,7 +297,7 @@ Movie.saveAll = function () {
     localStorage["movies"] = JSON.stringify( Movie.instances);
     console.log(`${nmrOfMovies} movie records saved.`);
   } catch (e) {
-    alert( "Error when writing to Local Storage\n" + e);
+    console.error( "Error when writing to Local Storage\n" + e);
   }
 };
 

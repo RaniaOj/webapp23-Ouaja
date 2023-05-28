@@ -5,13 +5,15 @@
 /***************************************************************
  Import classes, datatypes and utility procedures
  ***************************************************************/
-import { Person, RoleEL } from "../m/Person.mjs";
+import Person from "../m/Person.mjs";
 import Movie from "../m/Movie.mjs";
+import { RoleEL } from "../m/Person.mjs"
 import { fillSelectWithOptions, createChoiceWidget } from "../../lib/useful.mjs";
 
 /***************************************************************
  Load data
  ***************************************************************/
+
 Person.retrieveAll();
 Movie.retrieveAll();
 
@@ -36,10 +38,27 @@ window.addEventListener("beforeunload", function () {
   Movie.saveAll();
 });
 /**********************************************
+ Use case Retrieve and List All Persons
+ **********************************************/
+document.getElementById("RetrieveAndListAll")
+    .addEventListener("click", function () {
+  const tableBodyEl = document.querySelector("section#Person-R > table > tbody");
+  tableBodyEl.innerHTML = "";
+  for (const key of Object.keys( Person.instances)) {
+    const person = Person.instances[key];
+    const row = tableBodyEl.insertRow();
+    row.insertCell().textContent = person.personId;
+    row.insertCell().textContent = person.name;
+    row.insertCell().textContent = RoleEL.labels[person.role];
+  }
+  document.getElementById("Person-M").style.display = "none";
+  document.getElementById("Person-R").style.display = "block";
+});
+/**********************************************
  Use case Create Person
  **********************************************/
 const createFormEl = document.querySelector("section#Person-C > form");
-roleFieldsetEl = createFormEl.querySelector("fieldset[data-bind='role']"),
+roleFieldsetEl = createFormEl.document.getElementsByClass("role"),
 document.getElementById("Create").addEventListener("click", function () {
   document.getElementById("Person-M").style.display = "none";
   document.getElementById("Person-C").style.display = "block";
@@ -76,7 +95,7 @@ createFormEl.personId.setCustomValidity(
     Person.checkPersonIdAsId( slots.personId).message);
 createFormEl.name.setCustomValidity(
     Person.checkName( slots.name).message);
-createFormEl.personId[0].setCustomValidity(
+createFormEl.role[0].setCustomValidity(
     Person.checkRole( slots.role).message);
 // save the input data only if all form fields are valid
  if (createFormEl.checkValidity()) Person.add( slots);
@@ -109,8 +128,21 @@ updateFormEl["commit"].addEventListener("click", function () {
     name: updateFormEl.name.value,
     role: updateFormEl.JSON.parse( roleFieldsetEl.getAttribute("data-value"))
   }
-  // check all property constraints
-  /* SIMPLIFIED CODE: no before-save validation of name */
+createFormEl.personId.addEventListener("input", function () {
+    createFormEl.personId.setCustomValidity(
+    Person.checkPersonIdAsId( createFormEl.personId.value).message);
+});
+createFormEl.name.addEventListener("input", function () {
+    createFormEl.name.setCustomValidity(
+    Person.checkName( createFormEl.name.value).message);
+});
+// mandatory value check for the role
+roleFieldsetEl.addEventListener("click", function () {
+  const val = roleFieldsetEl.getAttribute("data-value");
+  formEl.role[0].setCustomValidity(
+    (!val || Array.isArray(val) && val.length === 0) ?
+      "At least one role form must be selected!":"" );
+});
   // save the input data only if all of the form fields are valid
   if (updSelPersonEl.checkValidity()) {
     Person.update( slots);
@@ -158,23 +190,6 @@ deleteFormEl["commit"].addEventListener("click", function () {
     delSelPersonEl.remove( delSelPersonEl.selectedIndex);
   }
 });
-/**********************************************
- Use case Retrieve and List All Persons
- **********************************************/
-document.getElementById("RetrieveAndListAll")
-    .addEventListener("click", function () {
-  const tableBodyEl = document.querySelector("section#Person-R > table > tbody");
-  tableBodyEl.innerHTML = "";
-  for (const key of Object.keys( Person.instances)) {
-    const person = Person.instances[key];
-    const row = tableBodyEl.insertRow();
-    row.insertCell().textContent = person.personId;
-    row.insertCell().textContent = person.name;
-    row.insertCell().textContent = RoleEL.labels[person.role];
-  }
-  document.getElementById("Person-M").style.display = "none";
-  document.getElementById("Person-R").style.display = "block";
-});
 
 
 /**********************************************
@@ -183,10 +198,10 @@ document.getElementById("RetrieveAndListAll")
 function refreshManageDataUI() {
   // show the manage person UI and hide the other UIs
   document.getElementById("Person-M").style.display = "block";
+  document.getElementById("Person-R").style.display = "none";
   document.getElementById("Person-C").style.display = "none";
   document.getElementById("Person-U").style.display = "none";
   document.getElementById("Person-D").style.display = "none";
-  document.getElementById("Person-R").style.display = "none";
 }
 
 // Set up Manage Persons UI
