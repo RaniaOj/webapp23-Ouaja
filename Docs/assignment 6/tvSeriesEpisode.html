@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <meta charset="UTF-8" />
+ <title>Plain JS Subtyping App: Manage tvSeriesEpisodes</title>
+ <link rel="stylesheet" href="css/style.css"/>
+ <script src="src/v/persons.mjs" type="module"></script><head>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <div class="title">
+      <h1>Movie Library</h1>
+      <h2>Plain JS Subtyping App</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="movie.html">Manage movies</a></li>
+        <li><a href="person.html"> Manage persons</a></li>
+        <li><a href="tvSerieEpisode.html">Manage tvSerieEpisodes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrapper clearfix">
+  <div class="wrapper clearfix">
+    <!-- ======================================================= -->
+    <section id="TvSeriesEpisode-M" class="UI-Page">
+      <!-- ======================================================= -->
+      <h1>Manage tvSeriesEpisode </h1>
+      <ul class="menu">
+        <li>
+          <button type="button" id="RetrieveAndListAll">Retrieve/list all tvSeriesEpisodes</button>
+        </li>
+        <li>
+          <button type="button" id="Create">Create a new tvSeriesEpisode</button>
+        </li>
+        <li>
+          <button type="button" id="Update">Update a tvSeriesEpisode</button>
+        </li>
+        <li>
+          <button type="button" id="Delete">Delete a tvSeriesEpisode</button>
+        </li>
+      </ul>
+      <div class="button"><a href="index.html">Back to Main menu</a></div>
+    </section>
+    <!-- ======================================================= -->
+    <section id="TvSeriesEpisode-R" class="UI-Page">
+      <!-- ======================================================= -->
+      <h1>List all tvSeriesEpisodes</h1>
+      <table id="tvSeriesEpisode">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>TvSeriesName</th>
+          <th>EpisodeNo.</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="button">
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </section>
+    <!-- ======================================================= -->
+    <section id="TvSeriesEpisode-C" class="UI-Page">
+      <!-- ======================================================= -->
+      <h1>Create a new tvSeriesEpisode</h1>
+      <form>
+        <div class="field">
+          <label>ID: <input type="text" name="movieId"/></label>
+        </div>
+        <div class="field">
+          <label>TvSeriesName: <input type="text" name="tvSeriesName"/></label>
+        </div>
+        <div class="field">
+          <label>Episode no.: <input type="text" name="episodeNo"/></label>
+        </div>
+        <div class="button-group">
+          <button type="submit" name="commit">Save</button>
+          <button type="button" class="back-to-menu">Back to menu</button>
+        </div>
+      </form>
+    </section>
+    <!-- ======================================================= -->
+    <section id="TvSeriesEpisode-U" class="UI-Page">
+      <!-- ======================================================= -->
+      <h1>Update an tvSeriesEpisode</h1>
+      <form>
+        <div class="select-one">
+          <label>Select tvSeriesEpisode: <select name="selectTvSeriesEpisode"></select></label>
+        </div>
+        <div class="field">
+          <label>ID:
+            <output name="movieId"></output>
+          </label>
+        </div>
+        <div class="field">
+          <label>TvSeriesName: <input type="text" name="tvSeriesName"/></label>
+        </div>
+        <div class="field">
+          <label>Episode no.: <input type="text" name="episodeNo"/></label>
+        </div>
+        <div class="button-group">
+          <button type="submit" name="commit">Save changes</button>
+          <button type="button" class="back-to-menu">Back to menu</button>
+        </div>
+      </form>
+    </section>
+    <!-- ======================================================= -->
+    <section id="TvSeriesEpisode-D" class="UI-Page">
+      <!-- ======================================================= -->
+      <h1>Delete a tvSeriesEpisode</h1>
+      <form>
+        <div class="select-one">
+          <label>Select tvSeriesEpisode: <select name="selectTvSeriesEpisode"></select></label>
+        </div>
+        <div class="button-group">
+          <button type="submit" name="commit">Delete</button>
+          <button type="button" class="back-to-menu">Back to menu</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="foot-content wrapper">
+    Copyright © 2015-2021 Gerd Wagner,
+    <a rel="license" href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>.
+  </div>
+</footer>
+</body>
+</html>

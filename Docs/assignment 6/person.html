@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <title>Plain JS Subtyping App: Manage Persons</title>
+ <link rel="stylesheet" href="css/style.css"/>
+ <script src="src/v/persons.mjs" type="module"></script>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <div class="title">
+      <h1>Movie Library</h1>
+      <h2>Plain JS Subtyping App</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="movie.html">Manage movies</a></li>
+        <li><a href="person.html"> Manage persons</a></li>
+        <li><a href="tvSeriesEpisode.html">Manage tvSerieEpisodes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrapper clearfix">
+<!-- ======================================================= -->
+<section id="Person-M" class="UI-Page">
+    <!-- ======================================================= -->
+<h1>Manage persons</h1>
+<ul class="menu">
+    <li>
+      <button type="button" id="RetrieveAndListAll">Retrieve/list all persons
+      </button>
+    </li>
+    <li>
+      <button type="button" id="Create">Create a new person record</button>
+    </li>
+    <li>
+      <button type="button" id="Update">Update a person record</button>
+    </li>
+    <li>
+      <button type="button" id="Delete">Delete a person record</button>
+    </li>
+  </ul>
+  <div class="button"><a href="index.html">Back to Main menu</a></div>
+</section>
+<main>
+<!-- ======================================================= -->
+<section id="Person-R" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Retrieve and list all persons</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>PersonId</th>
+        <th>Name</th>
+        <th>Role(s)</th>
+        <th>Directed_movies</th>
+        <th>Played_movies</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="button">
+      <button type="button" class="back-to-menu">Back to menu</button>
+    </div>
+  </section>
+<!-- ======================================================= -->
+<section id="Person-C" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Create a new person record</h1>
+    <form>
+      <div class="field">
+        <label>PersonId: <input type="text" name="personId"/></label>
+      </div>
+      <div class="field">
+        <label>Name: <input type="text" name="name"/></label>
+      </div>
+      <div class="selech-many">
+        <label>Role(s): <select name="selectRole"></select> </label>
+      </div>
+      <div class="select-many">
+        <label>Directed movies: 
+          <select name="selectMovie" multiple="multiple"></select>
+      </div>
+      <div class="select-many">
+        <label>Played movies: 
+          <select name="selectMovie" multiple="multiple"></select>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  <!-- ======================================================= -->
+  <section id="Person-U" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Update a person record</h1>
+    <form autocomplete="off">
+      <div class="select-one">
+        <label>Select person: <select name="selectPerson"></select></label>
+      </div>
+      <div class="field">
+        <label>PersonId:
+          <output name="personId"></output>
+        </label>
+      </div>
+      <div class="field">
+        <label>Name: <input type="text" name="name"/></label>
+      </div>
+      <div class="selech-many">
+        <label>Role(s): <select name="selectRole"></select> </label>
+      </div>
+        <div class="select-many">
+          <label>Directed_movies: 
+            <select name="selectMovie" multiple="multiple"></select>
+        </div>
+        <div class="select-many">
+          <label>Played_movies: 
+            <select name="selectMovie" multiple="multiple"></select>
+        </div>
+      <div class="button-group">
+        <button type="submit" name="commit" disabled="disabled">Save</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  <!-- ======================================================= -->
+  <section id="Person-D" class="UI-Page">
+    <!-- ======================================================= -->
+    <h1>Delete a person record</h1>
+    <form>
+      <div class="select-one">
+        <label>Select person: <select name="selectPerson"></select></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Delete</button>
+        <button type="button" class="back-to-menu">Back to menu</button>
+      </div>
+    </form>
+  </section>
+</div>
+</main>
+<footer>
+  <div class="foot-content wrapper">
+    Copyright © 2013-2021 Gerd Wagner,
+    <a rel="license" href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>.
+  </div>
+</footer>
+</body>
+</html>

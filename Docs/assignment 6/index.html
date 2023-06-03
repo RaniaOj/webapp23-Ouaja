@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <title>Plain JS Subtyping App</title>
+ <link rel="stylesheet" href="css/style.css"/>
+ <script type="module">
+  import { clearData, generateTestData } from "./src/c/application.mjs";
+  const clearButton = document.getElementById("clearData"),
+    generateTestDataButtons = document.querySelectorAll("button.generateTestData");
+  // Set event handlers for the buttons "clearData" and "generateTestData"
+  if (clearButton) {
+  clearButton.addEventListener("click", clearData, false);
+  }
+  for (const btn of generateTestDataButtons) {
+    btn.addEventListener("click", generateTestData);
+  }
+</script>
+</head>
+<header>
+  <div class="wrapper clearfix">
+    <div class="title">
+ <h1>Movie Library</h1>
+ <h2>Plain JS Subtyping App</h2>
+ <figure style="float:right">
+  </figure>
+</div>
+</div>
+</header>
+<body>
+  <a href="https://web-engineering.info">
+   <img property="thumbnailUrl" title="Icon made by Lorc under CC BY 3.0. Available on https://game-icons.net"
+    src="machine-build.svg" width="120"  alt=""/></a>
+ </figure>
+ <menu>
+  <nav>
+    <div class="two-col-menu">
+      <ul class="menu">
+        <li><a href="movie.html">Manage movies</a></li>
+        <li><a href="person.html">Manage persons</a></li>
+        <li><a href="tvSeriesEpisode.html">Manage tvSerieEpisodes</a></li>
+      </ul>
+      <ul class="menu">
+  <li><button type="button" onclick="Movie.clearData()">Clear</button> database</li>
+  <li><button type="button" onclick="Movie.generateTestData()">Generate</button> test data</li>
+ </menu>
+ 
+  
+ <footer style="font-size: small;">
+  <hr />
+  <div>Copyright © 2013-2021 Gerd Wagner,
+  <a href="https://www.b-tu.de/fg-internet-technologie/">Chair of Internet Technology</a>,
+   Brandenburg University of Technology, Germany. The code of this tutorial web app is licensed under
+  <a rel="license" href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>,
+   implying that the code is provided "as-is", can be modified to create derivative works, can be redistributed,
+   and can be used in commercial applications, but the associated article or book chapter must not be
+    distributed or republished without the copyright holder's consent.
+  </div>
+ </footer>
+</body>
